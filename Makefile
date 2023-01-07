@@ -1,7 +1,10 @@
-.PHONY: all ci build run update get test run lint 
+.PHONY: all ci build run update get test run lint tidy
 
 run: 
-	@go run -ldflags "-X main.version=local" github.com/gcg/cmd/kubew 
+	@go run -ldflags "-X main.version=local" github.com/gcg/kubew/cmd/kubew
+
+tidy: 
+	@go mod tidy
 
 build: 
 	@go build ./... 
